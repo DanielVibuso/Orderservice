@@ -1,0 +1,16 @@
+{
+"license": "Proprietary",
+"authors": [
+    {
+        "name": "Daniel Vilela",
+        "email": "daniel_2bueno@hotmail.com",
+        "role": "Developer"
+    }]
+,
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/",
+            "Vendor\\Namespace\\": ""
+        }
+}
+}
