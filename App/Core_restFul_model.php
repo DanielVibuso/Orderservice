@@ -52,4 +52,6 @@ class Core{
     }
 }
 
+//core exemplo to make a simple api restful pure php
+
 ?>
