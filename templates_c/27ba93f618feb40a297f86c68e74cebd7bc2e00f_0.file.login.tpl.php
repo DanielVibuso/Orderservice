@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-05-23 19:41:10
+/* Smarty version 3.1.39, created on 2021-05-30 05:15:44
   from 'C:\xampp\htdocs\crud_smarty\templates\user\login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60aa93b65fa3e3_72439141',
+  'unifunc' => 'content_60b3036026d3c0_71953841',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '27ba93f618feb40a297f86c68e74cebd7bc2e00f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\crud_smarty\\templates\\user\\login.tpl',
-      1 => 1621791666,
+      1 => 1622338198,
       2 => 'file',
     ),
   ),
@@ -21,13 +21,11 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:user/header.tpl' => 1,
   ),
 ),false)) {
-function content_60aa93b65fa3e3_72439141 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60b3036026d3c0_71953841 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:user/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->smarty->ext->configLoad->_loadConfigFile($_smarty_tpl, "user/login.conf", null, 0);
 ?>
 
-<title><?php echo $_smarty_tpl->smarty->ext->configLoad->_getConfigVariable($_smarty_tpl, 'pageTitle');?>
-</title>
 <div class="container">
   <div class="row justify-content-md-center">
     <div class="col col-lg-6">
