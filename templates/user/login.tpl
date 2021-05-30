@@ -1,6 +1,5 @@
 <!--{include file="user/header.tpl"}-->
 <!--{config_load file="user/login.conf"}-->
-<title><!--{#pageTitle#}--></title>
 <div class="container">
   <div class="row justify-content-md-center">
     <div class="col col-lg-6">

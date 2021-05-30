@@ -15,27 +15,37 @@ class UserController{
     }
 
     public function autenticate(): void{
-        $loginPage = new UserView(); //carrega view
+        $userView = new UserView(); //carrega view
         $loginData = new UserLoginRequest(); //carrega camada de validação de dados do form
+
+        //verifica se usuário já está autenticado
+        if($this->isAutenticate()){
+            header("location: https://localhost/crud_smarty/user/home");
+            return;
+        }
 
         //Verifica se os dados vindos do post de login estão uteis e validos, se não retorna view com erro.
         if(!$loginData->validateData()){
-           $loginPage->addDataToView('errors', $loginData->getError());
-           $loginPage->showView('user/login.tpl');
+           $userView->addDataToView('errors', $loginData->getError());
+           $userView->showView('user/login.tpl');
            return;
         }
 
-        //carrega camada model, persistencia de dados inclusive e salva os dados do usuário na sessão, para uso durante
-        //execução do código não necessitar realizar pesquisas sobre isso.
         $user = new User();
         if($user->autenticate($loginData->getDataRequest())){
             Session::start($user);
-            //TODO: Chamar tela home de usuários logados.
-            //forma de pegar os dados da sessão.$myvar = Session::user('uid', 'login');
+            header("location: https://localhost/crud_smarty/user/home");
         }else{
             echo 'falha ao logar';
         }
+    }
 
+    protected function isAutenticate(){
+        return Session::user('ip_session') == $_SERVER['REMOTE_ADDR'];
+    }
 
+    public function home(){
+        $userView = new UserView();
+        $userView->showView('user/home.tpl');
     }
 }

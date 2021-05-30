@@ -10,7 +10,7 @@ class User extends Model{
         $login = $data['login'];
         $password = $data['password'];
 
-        $sql = "SELECT * From users where login = :login and password = md5(:password)";
+        $sql = "SELECT * From users where login = :login and password = md5(:password) LIMIT 1";
 
         if ($connection = Connection::getInstance()) {
             $stmt = $connection->prepare($sql);

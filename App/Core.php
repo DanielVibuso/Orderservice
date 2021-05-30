@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Core\Session;
+
 class Core{
 
     private string $url;
@@ -11,6 +13,7 @@ class Core{
 
     public function __construct(){
         if($this->manageUrl()){
+            $this->auth();
             $controller = new ($this->getController())();
             call_user_func_array(array($controller, $this->getMethod($controller)),
                                  array($this->getParams()));
@@ -67,6 +70,17 @@ class Core{
 
     public function getParams() : ?array{
         return $this->params;
+    }
+
+    private function auth(): void{
+        if($this->controller == 'user')
+            if($this->method == 'login' || $this->method == 'autenticate')
+            {
+                return ;
+            }
+
+        if(Session::user('ip_session') != $_SERVER['REMOTE_ADDR'])
+                header("location: http://localhost/crud_smarty/user/login");
     }
 }
 
