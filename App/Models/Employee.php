@@ -12,6 +12,7 @@ class Employee extends Model{
         parent::__construct();
     }
 
+    //TODO: Abstrair o método create abaixo no model pai, com captura dinamica dos datas
     public function create(array $data): bool{
         $this->name = $data['name'];
         $this->lastname = $data['lastname'];
@@ -23,4 +24,5 @@ class Employee extends Model{
         else
             return false;
     }
+
 }

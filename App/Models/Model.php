@@ -128,4 +128,24 @@ class Model{
             throw new Exception("Não há conexão com Banco de dados!");
         }
     }
+
+    public function all(){
+        $connection = Connection::getInstance();
+        $sql = "SELECT * FROM $this->table";
+        $result = $connection->query($sql);
+        if($result){
+            return $result->fetchAll(\PDO::FETCH_ASSOC);
+        }
+    }
+
+    public function findById(int $id){
+        $connection = Connection::getInstance();
+        $sql = "SELECT * FROM $this->table where id = :id";
+        $result = $connection->prepare($sql);
+        $result->bindValue(':id', $id);
+        $result->execute();
+        if($result){
+            return $result->fetch(\PDO::FETCH_ASSOC);
+        }
+    }
 }
