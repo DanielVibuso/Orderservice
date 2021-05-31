@@ -21,4 +21,20 @@ class EmployeeController{
                 if($newEmployee->create($dataForm->getDataRequest()))
                     echo "salvo com sucesso";
         }
+
+        public function showEmployeesPage(){
+            $employees = new Employee();
+            $employees = $employees->all();
+            $showPage = new EmployeeView();
+            $showPage->addDataToView('employees', $employees);
+            $showPage->showView('employee/showAll.tpl');
+        }
+
+        public function showEmployeePage($data){
+            $employee = new Employee();
+            $employee = $employee->findById($data[0]);
+            $showPage = new EmployeeView();
+            $showPage->addDataToView('employee', $employee);
+            $showPage->showView('employee/showOne.tpl');
+        }
 }
